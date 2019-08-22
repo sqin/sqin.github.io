@@ -4,7 +4,7 @@
 
 
 
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -54,13 +54,16 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+  <meta name="description" content="种一颗树最好的时间是十年前，其次是现在。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="橙霸吹口哨">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en">
+<meta property="og:site_name" content="橙霸吹口哨">
+<meta property="og:description" content="种一颗树最好的时间是十年前，其次是现在。">
+<meta property="og:locale" content="zh">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="橙霸吹口哨">
+<meta name="twitter:description" content="种一颗树最好的时间是十年前，其次是现在。">
   <link rel="canonical" href="http://yoursite.com/">
 
 
@@ -75,7 +78,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>橙霸吹口哨</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -113,7 +116,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
   <div class="container use-motion">
     <div class="headband"></div>
 
@@ -124,7 +127,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">橙霸吹口哨</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -189,18 +192,18 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/新的开始/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="SQL">
+      <meta itemprop="description" content="种一颗树最好的时间是十年前，其次是现在。">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="橙霸吹口哨">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/08/21/新的开始/" class="post-title-link" itemprop="url">新的开始</a>
+            <a href="/2019/08/21/新的开始/" class="post-title-link" itemprop="url">找一个安静的地方和自己对话</a>
           
         </h1>
 
@@ -215,11 +218,19 @@
                 
               
 
-              <time title="Created: 2019-08-21 20:54:34 / Modified: 20:58:55" itemprop="dateCreated datePublished" datetime="2019-08-21T20:54:34+08:00">2019-08-21</time>
+              <time title="Created: 2019-08-21 20:54:34" itemprop="dateCreated datePublished" datetime="2019-08-21T20:54:34+08:00">2019-08-21</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-22 12:01:14" itemprop="dateModified" datetime="2019-08-22T12:01:14+08:00">2019-08-22</time>
+              </span>
             
           
 
@@ -234,7 +245,106 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>中文显示不出来</p>
+          <h2 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h2><p>自从6月份父亲心脏病住院以来，借着在医院一些空余的时间，漫无目的的找来一些网评较好的书：《快乐的Linux命令行》《精通正则表达式》《A Byte of Phton》《MySQL必知必会》《用Python写网络爬虫》《图解HTTP》，除了为了打发时间和想找回点做技术的感觉，另外还有心里一直想着的今年的一个目标：能够获得一笔工资外的收入，无论多少。</p>
+<p>偶然一个朋友找到我可不可以帮他想想有什么办法可以替代他一整天盯着爱马仕官网，他为了刷到爱马仕的一些新品，需要一直盯着电脑刷新网站，眼睛都快瞎了。我想了一下，也许我能够通过做点事情来巩固我这段时间看的Python。这段时间看了一些基础后，觉得这个”辅助语言”确实学晚了，它真的很方便、流畅，非常适合通过它来快速验证或学习全栈技术。</p>
+<h3 id="实现1"><a href="#实现1" class="headerlink" title="实现1"></a>实现1</h3><p>简单了解后，他需要知道网站有上新，上新的标准是什么？网页上面有一个物品的总数，只要这个总数有变化了，那么就代表有上新。那很简单，用requests库就可以搞定了，第一行代码有了<code>resp = requests.get(url)</code>,再用xpath解析这个resp的html结构，将<code>total</code>总数获取出来,对比上一次的<code>total</code>总数，即可知道是否有变化。检测到有变化后，通过Twilio免费短信或Email发送通知到订阅者。</p>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>手动测试了几次后，发现数目不对，爱马仕官网总是先展示一个静态页面，然后再刷新一次，出现最终的页面。上面的代码只能获取到第一次展示页面的数字，这个数字一般都是不准的。</p>
+<h3 id="实现2"><a href="#实现2" class="headerlink" title="实现2"></a>实现2</h3><p>使用selenium的webdriver来模拟我们实际情况。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 浏览器相关设置</span><br><span class="line">chrome_options = Options()</span><br><span class="line">chrome_options.add_argument(&apos;--headless&apos;)</span><br><span class="line">chrome_options.add_argument(&apos;--no-sandbox&apos;)</span><br><span class="line">chrome_options.add_argument(&apos;--disable-dev-shm-usage&apos;)</span><br><span class="line">driver = webdriver.Chrome(options=chrome_options</span><br><span class="line"># 打开小件页面</span><br><span class="line">driver.get(goods_url)</span><br><span class="line"># 新建一个窗口，背包页面</span><br><span class="line">js = &apos;window.open(&quot;&#123;&#125;&quot;);&apos;.format(bags_url)</span><br><span class="line">driver.execute_script(js)</span><br><span class="line"># hermes页面加载后会再刷新数字，延时可以获取到正确到数字</span><br><span class="line">time.sleep(10)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 几个相关的driver函数</span><br><span class="line">handle = driver.window_handles</span><br><span class="line">driver.switch_to.window(handle)</span><br><span class="line">driver.find_element_by_xpath(x_filter).text  # 获取页面的需要的元素</span><br><span class="line">driver.switch_to.window(handle)</span><br><span class="line">driver.refresh()</span><br><span class="line">driver.close()</span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+
+<h4 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h4><ul>
+<li>不够轻便</li>
+<li>配置复杂，切换服务器的话又得重新下载一系列依赖的软件包。</li>
+<li>效率低，要获取的字段很少，但却把整个页面都加载了一遍。</li>
+<li>不够稳定，延时时间设置只能靠猜，网络情况不好的情况下还是会获取到静态页面。</li>
+<li>可扩展性低</li>
+</ul>
+<h3 id="实现3"><a href="#实现3" class="headerlink" title="实现3"></a>实现3</h3><p>使用chrome的开发者工具(command+option+i) -&gt; Newwork标签 -&gt; XHR，手动刷新页面，分析一下存在哪些接口交互。很明显可以看到这样一个接口：<br><code>https://bck.hermes.com/product?locale=au_en&amp;category=WOMENBAGSSMALLLEATHER&amp;sort=relevance</code><br>接口返回了<code>totol</code>总数，还返回了<code>porducts</code>列表，一页强制只返回36个产品数据，所以想获取到该栏目所有的产品还得再确认一下如何翻页，经过简单的推断和尝试拼装参数可以得到一个接口：<br><code>https://bck.hermes.com/product?locale=au_en&amp;category=WOMENBAGSSMALLLEATHER&amp;sort=relevance&amp;offset={0}</code><br>有了<code>products</code>这个属性，就可以分析对比上一次增加或较少了什么产品了，整体大概流程如图：<br><img src="images/Hermes.png" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/restart/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SQL">
+      <meta itemprop="description" content="种一颗树最好的时间是十年前，其次是现在。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橙霸吹口哨">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/21/restart/" class="post-title-link" itemprop="url">restart</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-21 20:35:02" itemprop="dateCreated datePublished" datetime="2019-08-21T20:35:02+08:00">2019-08-21</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-22 08:05:32" itemprop="dateModified" datetime="2019-08-22T08:05:32+08:00">2019-08-22</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>总而言之，从新开始。</p>
 
         
       
@@ -293,17 +403,30 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description motion-element" itemprop="description"></div>
+  <p class="site-author-name" itemprop="name">SQL</p>
+  <div class="site-description motion-element" itemprop="description">种一颗树最好的时间是十年前，其次是现在。</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
+        
       </div>
     
   </nav>
@@ -327,7 +450,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">SQL</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>
