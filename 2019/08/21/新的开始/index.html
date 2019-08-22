@@ -62,12 +62,12 @@
 <meta property="og:site_name" content="橙霸吹口哨">
 <meta property="og:description" content="抓取爱马仕的官网产品，分析上新产品">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="http://yoursite.com/2019/08/21/新的开始/images/Hermes.png">
-<meta property="og:updated_time" content="2019-08-22T04:17:23.645Z">
+<meta property="og:image" content="https://imgur.com/vpa6pgF.png">
+<meta property="og:updated_time" content="2019-08-22T06:05:16.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="找一个安静的地方和自己对话">
 <meta name="twitter:description" content="抓取爱马仕的官网产品，分析上新产品">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/21/新的开始/images/Hermes.png">
+<meta name="twitter:image" content="https://imgur.com/vpa6pgF.png">
   <link rel="canonical" href="http://yoursite.com/2019/08/21/新的开始/">
 
 
@@ -233,7 +233,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-22 12:17:23" itemprop="dateModified" datetime="2019-08-22T12:17:23+08:00">2019-08-22</time>
+                <time title="Modified: 2019-08-22 14:05:16" itemprop="dateModified" datetime="2019-08-22T14:05:16+08:00">2019-08-22</time>
               </span>
             
           
@@ -267,7 +267,7 @@
 <li>不够稳定，延时时间设置只能靠猜，网络情况不好的情况下还是会获取到静态页面。</li>
 <li>可扩展性低</li>
 </ul>
-<h3 id="实现3"><a href="#实现3" class="headerlink" title="实现3"></a>实现3</h3><p>使用chrome的开发者工具(command+option+i) -&gt; Newwork标签 -&gt; XHR，手动刷新页面，分析一下存在哪些接口交互。很明显可以看到这样一个接口：<br><code>https://bck.hermes.com/product?locale=au_en&amp;category=WOMENBAGSSMALLLEATHER&amp;sort=relevance</code><br>接口返回了<code>totol</code>总数，还返回了<code>porducts</code>列表，一页强制只返回36个产品数据，所以想获取到该栏目所有的产品还得再确认一下如何翻页，经过简单的推断和尝试拼装参数可以得到一个接口：<br><code>https://bck.hermes.com/product?locale=au_en&amp;category=WOMENBAGSSMALLLEATHER&amp;sort=relevance&amp;offset={0}</code><br>有了<code>products</code>这个属性，就可以分析对比上一次增加或较少了什么产品了，整体大概流程如图：<br><img src="images/Hermes.png" alt></p>
+<h3 id="实现3"><a href="#实现3" class="headerlink" title="实现3"></a>实现3</h3><p>使用chrome的开发者工具(command+option+i) -&gt; Newwork标签 -&gt; XHR，手动刷新页面，分析一下存在哪些接口交互。很明显可以看到这样一个接口：<br><code>https://bck.hermes.com/product?locale=au_en&amp;category=WOMENBAGSSMALLLEATHER&amp;sort=relevance</code><br>接口返回了<code>totol</code>总数，还返回了<code>porducts</code>列表，一页强制只返回36个产品数据，所以想获取到该栏目所有的产品还得再确认一下如何翻页，经过简单的推断和尝试拼装参数可以得到一个接口：<br><code>https://bck.hermes.com/product?locale=au_en&amp;category=WOMENBAGSSMALLLEATHER&amp;sort=relevance&amp;offset={0}</code><br>有了<code>products</code>这个属性，就可以分析对比上一次增加或较少了什么产品了，整体大概流程如图：<br><img src="https://imgur.com/vpa6pgF.png" alt></p>
 <h5 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h5><ol>
 <li>每次大概跑个48小时候就会假死</li>
 <li>跑得太快ip被封了</li>
