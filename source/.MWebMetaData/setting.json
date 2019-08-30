@@ -1,0 +1,10 @@
+{
+  "name" : "source",
+  "fileExtension" : ".md",
+  "autoUploadInsertedImageKey" : "sqin-https:\/\/sqin.imgur.com\/",
+  "autoUploadInsertedImage" : true,
+  "folderType" : 10,
+  "mediaFloder" : "media",
+  "orderBy" : 0,
+  "newlinesToBR" : 0
+}
