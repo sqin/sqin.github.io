@@ -35,10 +35,14 @@ git config --global user.email "your_email"
 `git co`:  检出dev分支`git co dev `,丢弃a文件的修改:`git co -- a` **这是个危险的命令,不要随便使用**
 `git br`: 查看当前分支, `git br test`:创建一个新分支
 可以用`git co -b test`快速创建一个test分支并切过去
-
+`git reset HEAD`: 回退暂存区的修改 回退本地历史
+`git push`: git push <别名> <分支名>
+`git fetch`: 把远端仓库有,而本地仓库没有的内容拉下来,但是不做合并
+`git pull`: 把远端仓库有,而本地仓库没有的内容拉下来,并尝试做一次合并
 
 
 ## Git 的分支管理
-`merge`:
-`cherry-pick`:
-`rebase`:
+`git merge`: 如果没有冲突,那么就是将当前的HEAD和分支快速前进(fast-forward) 到 被合并分支的最新位置.如果有冲突,会做一个三方合并,然后生成一个节点.
+`git cherry-pick`: 可以自由的选择某个提交到当前分支.
+`git rebase`: 一个自动化的cherry-pick
+`HEAD`:^和~操作符 HEAD^ 当前指针的上一个位置,HEAD^^是上两个位置.可以使用~来简化,HEAD~2.
