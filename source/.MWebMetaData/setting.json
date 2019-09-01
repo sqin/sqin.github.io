@@ -1,5 +1,5 @@
 {
-  "name" : "source",
+  "name" : "Blog",
   "fileExtension" : ".md",
   "autoUploadInsertedImageKey" : "sqin-https:\/\/sqin.imgur.com\/",
   "autoUploadInsertedImage" : true,
