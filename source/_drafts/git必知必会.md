@@ -24,22 +24,39 @@ git config --global user.email "your_email"
   git config --global alias.st status
   git config --global alias.ci commit
   git config --global alias.br branch
+  git config --global alias.last "log -1 HEAD"
 ```
 
 `git init`: 创建一个空的git目录
+`git clone URL `: 将远程仓库所有的东西都克隆一份到目录下的.git目录下,并将当前HEAD指向的快照展示出来,可以直接用于开发.  
 `git add`: 将未跟踪的文件加入暂存区 将解决冲突后的文件加入暂存区以便提交.注意`git add . ` 与 `git add *`的区别.
 `git ci -m `: 提交文件到本地仓库
 `git st`: 查看当前三个区域的状态.(工作区,缓存区,仓库)
 `git diff`:查看工作区与暂存区的变化.加入 `--staged(--cached)` 参数,就是查看暂存区与仓库的变化.
-`git log`:查看提交历史,`p,preety`等优化输出
+`git log`:查看提交历史,`-p,--preety=oneline,-1`等优化输出
 `git co`:  检出dev分支`git co dev `,丢弃a文件的修改:`git co -- a` **这是个危险的命令,不要随便使用**
 `git br`: 查看当前分支, `git br test`:创建一个新分支
 可以用`git co -b test`快速创建一个test分支并切过去
-`git reset HEAD`: 回退暂存区的修改 回退本地历史
+`git reset HEAD`: -- file回退暂存区的文件修改 , 回退本地历史,HEAD^或HEAD~1
 `git push`: git push <别名> <分支名>
 `git fetch`: 把远端仓库有,而本地仓库没有的内容拉下来,但是不做合并
 `git pull`: 把远端仓库有,而本地仓库没有的内容拉下来,并尝试做一次合并
+`git rm [FILE]`: 不再跟踪某个文件并从当前目录完全删除. 如果只是想不跟踪,继续存留在目录里,可以使用`git rm --cached [FILE]`
+`git mv [FILE] [FILE_NEW]`: git mv 是一个命令的组合,等价于以下操作:
 
+```
+    mv [FILE] [FILE_NEW]
+    git rm [FILE]
+    git add [FILE_NEW]
+```
+
+在git里面的文件状态有4种:
+    1. 未跟踪 (untracked)
+    2. 未修改 (unmodified)
+    3. 已修改 (modified)
+    4. 已暂存 (staged)
+状态流转如下图:
+    ![WechatIMG1](https://i.imgur.com/6PRH5ly.jpg)
 
 ## Git 的分支管理
 `git merge`: 如果没有冲突,那么就是将当前的HEAD和分支快速前进(fast-forward) 到 被合并分支的最新位置.如果有冲突,会做一个三方合并,然后生成一个节点.
