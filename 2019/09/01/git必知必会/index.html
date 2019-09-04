@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="Git必知必会">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git必知必会">
+<meta property="og:url" content="http://yoursite.com/2019/09/01/git必知必会/index.html">
+<meta property="og:site_name" content="找一个可以和自己安静对话的地方">
+<meta property="og:description" content="Git必知必会">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-04T15:47:36.637Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git必知必会">
+<meta name="twitter:description" content="Git必知必会">
+  <link rel="canonical" href="http://yoursite.com/2019/09/01/git必知必会/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Git必知必会 | 找一个可以和自己安静对话的地方</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">找一个可以和自己安静对话的地方</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/git必知必会/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SQL">
+      <meta itemprop="description" content="种一颗树最好的时间是十年前，其次是现在。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="找一个可以和自己安静对话的地方">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Git必知必会
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-01 22:14:27" itemprop="dateCreated datePublished" datetime="2019-09-01T22:14:27+08:00">2019-09-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-04 23:47:36" itemprop="dateModified" datetime="2019-09-04T23:47:36+08:00">2019-09-04</time>
+              </span>
+            
+          
+
+          
+            <div class="post-description">Git必知必会</div>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>《Git Pro》真是一本好书，回老家的来回车程阅读了一番，厘清了很多之前模糊不清的概念。</p>
+<h2 id="Git-的基础"><a href="#Git-的基础" class="headerlink" title="Git 的基础"></a>Git 的基础</h2><p>git使用命令行可以使用其所有的功能，gui工具一般都是利用了某一些功能来实现某一种工作流的方式，gui工具会把几个命令组合起来完成某一项功能，对我们深入了解Git的实现流程是不利的，建议从命令行入手理解Git这个<em>文件系统/数据库系统？</em><br>在Mac系统上安装Xcode后会自动安装git。<br>我们第一步要做的是对git做一些全局配置(git的配置有三级，第一级是在/etc/.git,对应git<br> config –system，第二级实在系统根目录下。。，对应git config –global，第三级在自己的工作区下面，后面的配置会覆盖前面的配置)<br>到~/.ssh目录下 ssh-keygen -t rsa -C “<a href="mailto:sqin.lin@foxmail.com" target="_blank" rel="noopener">sqin.lin@foxmail.com</a>“ ,将公钥的内容复制到GitHub的配置里面去.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your_name&quot;</span><br><span class="line">git config --global user.email &quot;your_email&quot;</span><br></pre></td></tr></table></figure>
+
+<p>设置命令别名,加快键入速度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global alias.last &quot;log -1 HEAD&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>git init</code>: 创建一个空的git目录<br><code>git clone URL</code>: 将远程仓库所有的东西都克隆一份到目录下的.git目录下,并将当前HEAD指向的快照展示出来,可以直接用于开发.<br><code>git add</code>: 将未跟踪的文件加入暂存区 将解决冲突后的文件加入暂存区以便提交.注意<code>git add .</code> 与 <code>git add *</code>的区别,<code>add .</code>将除了.gitignore指定的文件外所有的未跟踪和修改的放进暂存区，<code>add * -f</code> 则会忽略.gitignore的作用.<br><code>git ci -m</code>: 提交文件到本地仓库<br><code>git st</code>: 查看当前三个区域的状态.(工作区,缓存区,仓库)<br><code>git diff</code>:查看工作区与暂存区的变化.加入 <code>--staged(--cached)</code> 参数,就是查看暂存区与仓库的变化.<br><code>git log</code>:查看提交历史,可以<code>-p,--preety=oneline,-1，--graph</code>等优化输出<br><code>git co</code>检出dev分支<code>git co dev</code>,<code>git co -- a</code>丢弃a文件的修改:<strong>这是个危险的命令,不要随便使用，如果误用了只能依靠编辑器找回修改</strong>.用<code>git co -b test</code>快速创建一个test分支并切过去<br><code>git br</code>: 查看当前分支, <code>git br test</code>创建一个新分支,<code>git br -a</code>查看所有本地和远程的分支,<code>git br --merge</code>查看已经合并的分支，<code>git br --no-merge</code>查看未合并 的分支,<code>git br -f br_name some-sha1</code>强制修改当前br_name指向的节点<br><code>git reset HEAD</code>: <code>git reset HEAD -- file</code>回退暂存区的文件修改 , 回退本地历史,可以使用HEAD^或HEAD~1等操作回退指定次数,<br><code>git revert</code>: 回退到上一次的修改，产生一个新的节点，与上上个节点的内容一致。之后可push到远端同步回退。与reset的区别在于reset用于local的回退，而revert用于远端的回退。<br><code>git push</code>的标准语法是：<code>git push &lt;origin&gt; &lt;place&gt;</code>，例如<code>git push origin master</code>的意思是<strong>切到本地仓库中的“master”分支，获取所有的提交，再到远程仓库“origin”中找到“master”分支，将远程仓库中没有的提交记录都添加上去</strong><br><code>git fetch</code>: 把远端仓库有,而本地仓库没有的内容拉下来,更新本地仓库的远程指针（如origin/master）但是不做合并<br><code>git pull</code>: 把远端仓库有,而本地仓库没有的内容拉下来,并尝试做一次三方合并，相当于先<code>git fetch</code>后再做一次<code>git merge origin/master</code>，<code>git pull --rebase</code>拉下远端仓库内容后做一次变基合并<br><code>git rm [FILE]</code>: 不再跟踪某个文件并从当前目录完全删除. 如果只是想不跟踪,继续存留在目录里,可以使用<code>git rm --cached [FILE]</code><br><code>git mv [FILE] [FILE_NEW]</code>: git mv 是一个命令的组合,等价于以下操作:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv [FILE] [FILE_NEW]</span><br><span class="line">git rm [FILE]</span><br><span class="line">git add [FILE_NEW]</span><br></pre></td></tr></table></figure>
+
+<p><code>git merge</code>: 如果没有冲突,那么就是将当前的HEAD和分支快速前进(fast-forward) 到 被合并分支的最新位置.如果有冲突,会做一个三方合并,然后生成一个节点.这个合并后的节点将会有两个父节点。<br><code>git cherry-pick</code>: 将一些提交复制到当前所在的位置（HEAD）下面。<br><code>git rebase</code>: <code>git rebase master test</code>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout test</span><br><span class="line">git rebase master</span><br></pre></td></tr></table></figure>
+
+<p><code>HEAD</code>:<code>^</code>和<code>~</code>移动指针操作符， <code>HEAD^</code> 当前指针的上一个位置,<code>HEAD^^</code>是上两个位置.可以使用<code>HEAD~2</code>来简化.<code>HEAD^2</code>对于合并后有多个父节点，这个表示第二个父节点，即不在同一条线上的父节点。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Git/" rel="tag"># Git</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/28/合并文档/" rel="next" title="合并文档">
+                  <i class="fa fa-chevron-left"></i> 合并文档
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc">
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-的基础"><span class="nav-number">1.</span> <span class="nav-text">Git 的基础</span></a></li></ol></div>
+          </div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SQL</p>
+  <div class="site-description motion-element" itemprop="description">种一颗树最好的时间是十年前，其次是现在。</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SQL</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>
