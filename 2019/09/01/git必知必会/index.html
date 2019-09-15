@@ -62,10 +62,12 @@
 <meta property="og:site_name" content="找一个可以和自己安静对话的地方">
 <meta property="og:description" content="Git必知必会">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T09:01:56.292Z">
+<meta property="og:image" content="https://i.imgur.com/YT6Yplu.png">
+<meta property="og:updated_time" content="2019-09-07T09:59:45.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git必知必会">
 <meta name="twitter:description" content="Git必知必会">
+<meta name="twitter:image" content="https://i.imgur.com/YT6Yplu.png">
   <link rel="canonical" href="http://yoursite.com/2019/09/01/git必知必会/">
 
 
@@ -253,7 +255,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-05 17:01:56" itemprop="dateModified" datetime="2019-09-05T17:01:56+08:00">2019-09-05</time>
+                <time title="修改时间：2019-09-07 17:59:45" itemprop="dateModified" datetime="2019-09-07T17:59:45+08:00">2019-09-07</time>
               </span>
             
           
@@ -280,13 +282,13 @@
 
       
         <p>《Git Pro》真是一本好书，回老家的来回车程阅读了一番，厘清了很多之前模糊不清的概念。</p>
-<h2 id="Git-的基础"><a href="#Git-的基础" class="headerlink" title="Git 的基础"></a>Git 的基础</h2><p>git使用命令行可以使用其所有的功能，gui工具一般都是利用了某一些功能来实现某一种工作流的方式，gui工具会把几个命令组合起来完成某一项功能，对我们深入了解Git的实现流程是不利的，建议从命令行入手理解Git这个<em>文件系统/数据库系统</em><br>在Mac系统上安装Xcode后会自动安装git。<br>我们第一步要做的是对git做一些全局配置(git的配置有三级，第一级是在/etc/gitconfig,对应git<br> config –system，第二级在 <del>/.gitconfig，对应git config –global，第三级在自己的工作区.git/config下面，后面的配置会覆盖前面的配置)<br>到</del>/.ssh目录下 ssh-keygen -t rsa -C “<a href="mailto:sqin.lin@foxmail.com" target="_blank" rel="noopener">sqin.lin@foxmail.com</a>“ ,将公钥的内容复制到GitHub的配置里面去.</p>
+<h2 id="Git-的基础"><a href="#Git-的基础" class="headerlink" title="Git 的基础"></a>Git 的基础</h2><p>git使用命令行可以使用其所有的功能，gui工具一般都是利用了某一些功能来实现某一种工作流的方式，gui工具会把几个命令组合起来完成某一项功能，对我们深入了解Git的实现流程是不利的，建议从命令行入手理解Git这个<strong>内容寻址文件系统</strong><br>在Mac系统上安装Xcode后会自动安装git。<br>我们第一步要做的是对git做一些全局配置(git的配置有三级，第一级是在/etc/gitconfig,对应git<br> config –system，第二级在 <del>/.gitconfig，对应git config –global，第三级在自己的工作区.git/config下面，后面的配置会覆盖前面的配置)<br>到</del>/.ssh目录下 ssh-keygen -t rsa -C “<a href="mailto:sqin.lin@foxmail.com" target="_blank" rel="noopener">sqin.lin@foxmail.com</a>“ ,将公钥的内容复制到GitHub的配置里面去.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your_name&quot;</span><br><span class="line">git config --global user.email &quot;your_email&quot;</span><br></pre></td></tr></table></figure>
 
 <p>设置命令别名,加快键入速度</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.st status</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global alias.last &quot;log -1 HEAD&quot;</span><br></pre></td></tr></table></figure>
 
-<p><code>git init</code>: 创建一个空的git目录<br><code>git clone URL</code>: 将远程仓库所有的东西都克隆一份到目录下的.git目录下,并将当前HEAD指向的快照展示出来,可以直接用于开发.<br><code>git add</code>: 将未跟踪的文件加入暂存区 将解决冲突后的文件加入暂存区以便提交.注意<code>git add .</code> 与 <code>git add *</code>的区别,<code>add .</code>将除了.gitignore指定的文件外所有的未跟踪和修改的放进暂存区，<code>add * -f</code> 则会忽略.gitignore的作用.<br><code>git ci -m</code>: 提交文件到本地仓库，<code>git ci --amend</code>可用于修改最后一次提交的内容<br><code>git st</code>: 查看当前三个区域的状态.(工作区,缓存区,仓库)<br><code>git diff</code>:查看工作区与暂存区的变化.加入 <code>--staged(--cached)</code> 参数,就是查看暂存区与仓库的变化.<br><code>git log</code>:查看提交历史,可以<code>-p,--preety=oneline,-1，--graph</code>等优化输出<br><code>git co</code>检出dev分支<code>git co dev</code>,<code>git co -- a</code>丢弃a文件的修改:<strong>这是个危险的命令,不要随便使用，如果误用了只能依靠编辑器找回修改</strong>.用<code>git co -b test</code>快速创建一个test分支并切过去<br><code>git br</code>: 查看当前分支, <code>git br test</code>创建一个新分支,<code>git br -a</code>查看所有本地和远程的分支,<code>git br --merge</code>查看已经合并的分支，<code>git br --no-merge</code>查看未合并 的分支,<code>git br -f br_name some-sha1</code>强制修改当前br_name指向的节点<br><code>git reset HEAD</code>: <code>git reset HEAD -- file</code>回退暂存区的文件修改 , 回退本地历史,可以使用<code>HEAD^</code>或<code>HEAD~1</code>等操作回退指定次数,<br><code>git revert</code>: 回退到上一次的修改，产生一个新的节点，与上上个节点的内容一致。之后可push到远端同步回退。与reset的区别在于reset用于local的回退，而revert用于远端的回退。<br><code>git push</code>的标准语法是：<code>git push &lt;origin&gt; &lt;place&gt;</code>，例如<code>git push origin master</code>的意思是<strong>切到本地仓库中的“master”分支，获取所有的提交，再到远程仓库“origin”中找到“master”分支，将远程仓库中没有的提交记录都添加上去</strong><br><code>git fetch</code>: 把远端仓库有,而本地仓库没有的内容拉下来,更新本地仓库的远程指针（如origin/master）但是不做合并<br><code>git pull</code>: 把远端仓库有,而本地仓库没有的内容拉下来,并尝试做一次三方合并，相当于先<code>git fetch</code>后再做一次<code>git merge origin/master</code>，<code>git pull --rebase</code>拉下远端仓库内容后做一次变基合并<br><code>git rm [FILE]</code>: 不再跟踪某个文件并从当前目录完全删除. 如果只是想不跟踪,继续存留在目录里,可以使用<code>git rm --cached [FILE]</code><br><code>git mv [FILE] [FILE_NEW]</code>: git mv 是一个命令的组合,等价于以下操作:</p>
+<p><code>git init</code>: 创建一个空的git目录<br><code>git clone URL</code>: 将远程仓库所有的东西都克隆一份到目录下的.git目录下,并将当前HEAD指向的快照展示出来,可以直接用于开发.<br><code>git add</code>: 将未跟踪的文件加入暂存区 将解决冲突后的文件加入暂存区以便提交.注意<code>git add .</code> 与 <code>git add *</code>的区别,<code>add .</code>将除了.gitignore指定的文件外所有的未跟踪和修改的放进暂存区，<code>add * -f</code> 则会忽略.gitignore的作用.<br><code>git ci -m</code>: 提交文件到本地仓库，<code>git ci --amend</code>可用于修改最后一次提交的内容<br><code>git st</code>: 查看当前三个区域的状态.(工作区,缓存区,仓库)<br><code>git diff</code>:查看工作区与暂存区的变化.加入 <code>--staged(--cached)</code> 参数,就是查看暂存区与仓库的变化.<br><code>git log</code>:查看提交历史,可以<code>-p,--preety=oneline,-1，--graph</code>等优化输出 ,<code>-Svar</code> 可以查看var是是什么时候引入的。<br><code>git co</code>检出dev分支<code>git co dev</code>,<code>git co -- a</code>丢弃a文件的修改:<strong>这是个危险的命令,不要随便使用，如果误用了只能依靠编辑器找回修改</strong>.用<code>git co -b test</code>快速创建一个test分支并切过去<br><code>git br</code>: 查看当前分支, <code>git br test</code>创建一个新分支,<code>git br -a</code>查看所有本地和远程的分支,<code>git br --merge</code>查看已经合并的分支，<code>git br --no-merge</code>查看未合并 的分支,<code>git br -f br_name some-sha1</code>强制修改当前br_name指向的节点<br><code>git reset HEAD</code>: <code>git reset HEAD -- file</code>回退暂存区的文件修改 , 回退本地历史,可以使用<code>HEAD^</code>或<code>HEAD~1</code>等操作回退指定次数,<br><code>git revert</code>: 回退到上一次的修改，产生一个新的节点，与上上个节点的内容一致。之后可push到远端同步回退。与reset的区别在于reset用于local的回退，而revert用于远端的回退。<br><code>git push</code>的标准语法是：<code>git push &lt;origin&gt; &lt;place&gt;</code>，例如<code>git push origin master</code>的意思是<strong>切到本地仓库中的“master”分支，获取所有的提交，再到远程仓库“origin”中找到“master”分支，将远程仓库中没有的提交记录都添加上去</strong><br><code>git fetch</code>: 把远端仓库有,而本地仓库没有的内容拉下来,更新本地仓库的远程指针（如origin/master）但是不做合并<br><code>git pull</code>: 把远端仓库有,而本地仓库没有的内容拉下来,并尝试做一次三方合并，相当于先<code>git fetch</code>后再做一次<code>git merge origin/master</code>，<code>git pull --rebase</code>拉下远端仓库内容后做一次变基合并<br><code>git rm [FILE]</code>: 不再跟踪某个文件并从当前目录完全删除. 如果只是想不跟踪,继续存留在目录里,可以使用<code>git rm --cached [FILE]</code><br><code>git mv [FILE] [FILE_NEW]</code>: git mv 是一个命令的组合,等价于以下操作:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv [FILE] [FILE_NEW]</span><br><span class="line">git rm [FILE]</span><br><span class="line">git add [FILE_NEW]</span><br></pre></td></tr></table></figure>
 
 <p><code>git stash</code>暂存这个分支的修改，可快速成功切到其它分支</p>
@@ -296,7 +298,24 @@
 <p>，可以使用交互式变基来实现多个历史记录的修改<code>git rebase -i</code><br><code>HEAD</code>:<code>^</code>和<code>~</code>移动指针操作符， <code>HEAD^</code> 当前指针的上一个位置,<code>HEAD^^</code>是上两个位置.可以使用<code>HEAD~2</code>来简化.<code>HEAD^2</code>对于合并后有多个父节点，这个表示第二个父节点，即不在同一条线上的父节点。<br><code>git blame</code>:文件标注，展示文件中每一行最后一次修改的提交。<br><code>git bisect</code>:二分查找，当不知道是什么时候有问题的时候，可能经过上百个提交，这个可以让你快速找到这个问题在哪个提交被引入的，操作流程如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git bisect start</span><br><span class="line">git bisect bad</span><br><span class="line">git bisect good v1.5.0 </span><br><span class="line">循环使用 git bisect bad/good 来标识，最后找到特定的提交记录</span><br><span class="line">git bisect reset 避免HEAD分离。</span><br></pre></td></tr></table></figure>
 
-<p>也可以使用<code>git bisect start HEAD v1.5.0</code>第一个参数是项目不正常的提交，第二个参数是项目正常的提交. </p>
+<p>也可以使用<code>git bisect start HEAD v1.5.0</code>第一个参数是项目不正常的提交，第二个参数是项目正常的提交.<br><code>git grep</code></p>
+<h2 id="Git的底层命令"><a href="#Git的底层命令" class="headerlink" title="Git的底层命令"></a>Git的底层命令</h2><p>理解三个对象：</p>
+<ol>
+<li>blob object 数据对象</li>
+<li>tree object 树对象</li>
+<li>commit object 提交对象<br>树对象可以理解成目录，数据对象可以理解成文件。<br>一个树对象包含一个或多条树对象记录，每条记录指向一个数据对象或者子树对象。<br>数据对象记录了内容<br>树对象记录文件名、类型、sha1指针，查看smt项目最新的树对象：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">➜  smt-ios git:(Dev) git cat-file -p Dev^&#123;tree&#125;    </span><br><span class="line">100644 blob f58336d7c372fd07b1f994960fb6738ccb7d5a37	.clang-format</span><br><span class="line">100644 blob da7f0b456decacc6b4afffe8382888b84615af2d	.formatting-directory-ignore</span><br><span class="line">100644 blob 2b2fd6d74ecd60c6c8c1d8c123098bd414edc190	.gitignore</span><br><span class="line">100644 blob a04e47c2e26365457525bb92bbd8543496475d08	.gitmodules</span><br><span class="line">040000 tree 3c9b9232d56ec9b76913e0068bfda9af6f161615	Build-Phases</span><br><span class="line">040000 tree e78ba62d8d5a26f789f297bac2c3668ea0bc78a9	Docs</span><br><span class="line">040000 tree a421a14d00e0f31c95b7d50d196c98c17fcad150	FreeCitizen.xcodeproj</span><br><span class="line">040000 tree cf7a49e6d373d65586577d3e9e571f405aa2bc8b	FreeCitizen.xcworkspace</span><br><span class="line">040000 tree d3b2576371ee10ddf47d5a56d8a811de9204a810	FreeCitizen</span><br><span class="line">040000 tree 3bf3f004ad7d2a4399422fef70c1ba4869f4b240	LocalPods</span><br><span class="line">040000 tree 43c506e57a807ddcc02a6ebfb68fe8b5b545d6e1	Modules</span><br><span class="line">040000 tree 058214ea03b2abdb6df747c1c5ddc5ed85fc0449	NotificationServiceExtension</span><br><span class="line">100644 blob 803b5e0c4f5531a3a647270dd937e47b738008b4	Podfile</span><br><span class="line">100644 blob 8311c39b98e92724960c62444d84c3f1fd0c2d92	Podfile.lock</span><br><span class="line">040000 tree 96f0257a3d27f291e3846ccd4e8cc64a439023f2	Pods</span><br><span class="line">040000 tree 45d41f0ff419518ecf5ab073544859243d46f96b	ReadMe.rtfd</span><br><span class="line">100644 blob 366bb7f40803e159e0b3ff6be340fde4d0846e98	addRouter.py</span><br><span class="line">100644 blob 8ffb6dd72159103da05e35ea3af41874385d9801	code-format.sh</span><br><span class="line">040000 tree 2772c124a6c49e4967eb609411a7a1b6803087c8	&quot;\350\257\201\344\271\246\346\217\217\350\277\260\346\226\207\344\273\266&quot;</span><br></pre></td></tr></table></figure>
+
+<p>提交对象记录了提交注释、顶层的树对象、作者、时间戳</p>
+<p>生成数据对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;hello git world&quot; | git hash-object -w --stdin =&gt; sha1</span><br><span class="line">find .git/objects -type f</span><br><span class="line">git cat-file -p sha1 =&gt; content</span><br><span class="line">git cat-file -t sha1 =&gt; (blob,tree,commit)</span><br></pre></td></tr></table></figure>
+
+<p>生成树对象：<br>先把对象写进暂存区，再通过write-tree即可生成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git update-index --add --cahcheinfo 100644 sha1 file_name </span><br><span class="line">git read-tree --prefix=bak tree_sha1 </span><br><span class="line">git write-tree</span><br></pre></td></tr></table></figure>
+
+<p>生成提交对象：<br><code>ehco &quot;commit message&quot; | git commit-tree tree_sha1</code></p>
+<p>对象的关系图如下：<br><img src="https://i.imgur.com/YT6Yplu.png" alt="git底层三个对象的理解"></p>
 
     </div>
 
@@ -331,6 +350,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/15/bashrc里的alias增加参数/" rel="prev" title="bashrc里的alias增加参数">
+                  bashrc里的alias增加参数 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -380,7 +403,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc">
-            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-的基础"><span class="nav-number">1.</span> <span class="nav-text">Git 的基础</span></a></li></ol></div>
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-的基础"><span class="nav-number">1.</span> <span class="nav-text">Git 的基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的底层命令"><span class="nav-number">2.</span> <span class="nav-text">Git的底层命令</span></a></li></ol></div>
           </div>
         
       </div>
@@ -397,7 +420,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -414,7 +437,9 @@
         
           
         
-        <span class="site-state-item-count">1</span>
+          
+        
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -439,7 +464,9 @@
         
           
         
-        <span class="site-state-item-count">4</span>
+          
+        
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
